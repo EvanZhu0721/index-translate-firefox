@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Index 网页翻译",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "使用 Index-Translate 自动流式翻译网页，直接替换原文并缓存译文。",
   "browser_specific_settings": {
     "gecko": {
@@ -11,7 +11,8 @@
         "required": [
           "websiteContent"
         ]
-      }
+      },
+      "update_url": "https://raw.githubusercontent.com/EvanZhu0721/index-translate-firefox/main/updates.json"
     }
   },
   "permissions": [

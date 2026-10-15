@@ -1,0 +1,17 @@
+{
+  "addons": {
+    "index-page-translate@local.invalid": {
+      "updates": [
+        {
+          "version": "0.5.3",
+          "update_link": "https://github.com/EvanZhu0721/index-translate-firefox/releases/download/v0.5.3-alpha/efd5de279ef2480c805d-0.5.3.xpi",
+          "applications": {
+            "gecko": {
+              "strict_min_version": "142.0"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
