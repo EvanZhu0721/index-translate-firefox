@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Index 网页翻译</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header><img src="icon.svg" width="28" height="28" alt=""><h1>网页翻译</h1><span>Index</span></header>
+  <form id="settings">
+    <label class="switch-row"><span>全局自动翻译</span><input class="switch" id="autoTranslate" type="checkbox" role="switch" checked></label>
+    <div class="language-row"><label for="target">目标语言</label><select id="target"><option>简体中文</option><option>繁體中文</option><option>English</option><option>日本語</option><option>한국어</option><option>Français</option><option>Deutsch</option><option>Español</option></select></div>
+    <label class="check" title="流式接收译文，按整段替换"><input id="stream" type="checkbox" checked><span>流式接收</span></label>
+    <div class="page-controls">
+      <div class="actions"><label class="switch-row page-switch"><span>翻译网页</span><input class="switch" id="pageTranslate" type="checkbox" role="switch" disabled></label><button class="icon-button" id="stop" type="button" title="停止翻译" aria-label="停止翻译" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor" stroke="none"/></svg></button></div>
+      <p id="status" role="status" aria-live="polite">就绪</p>
+    </div>
+    <details id="blocked-panel">
+      <summary><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="m6.4 6.4 11.2 11.2"/></svg><span>屏蔽网站</span><span id="blocked-count">0</span><svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></summary>
+      <div class="details-content">
+        <button class="tonal-button" id="block-current" type="button">屏蔽当前网站</button>
+        <div class="site-entry"><input id="site-input" type="text" placeholder="example.com 或网址" aria-label="屏蔽网站域名" title="域名规则包含子域名"><button class="icon-button filled-button" id="add-site" type="button" title="添加屏蔽网站" aria-label="添加屏蔽网站"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div>
+        <p id="site-status" role="status"></p><ul id="blocked-list"></ul>
+      </div>
+    </details>
+    <details>
+      <summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9m4 0h3M4 17h3m4 0h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg><span>接口设置</span><svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></summary>
+      <div class="details-content settings-fields">
+        <label for="baseUrl">API 地址（含 /v1）</label><input id="baseUrl" type="url" required placeholder="https://index-translate.bilibili.com/v1">
+        <label for="model">模型</label><input id="model" required>
+        <label for="apiKey">API Key（可选）</label><input id="apiKey" type="password" autocomplete="off">
+        <button class="filled-button save-button" type="submit">保存设置</button>
+      </div>
+    </details>
+  </form>
+  <div class="cache-row"><p id="cache-status">本地缓存</p><button class="icon-button" id="clear-cache" type="button" title="清空翻译缓存" aria-label="清空翻译缓存"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 10v7M14 10v7"/></svg></button></div>
+  <script src="api.js"></script><script src="sites.js"></script><script src="popup.js"></script>
+</body>
+</html>

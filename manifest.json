@@ -1,0 +1,58 @@
+{
+  "manifest_version": 2,
+  "name": "Index 网页翻译",
+  "version": "0.5.2",
+  "description": "使用 Index-Translate 自动流式翻译网页，直接替换原文并缓存译文。",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "index-page-translate@local.invalid",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": [
+          "websiteContent"
+        ]
+      }
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "markup.js",
+        "schedule.js",
+        "sites.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "scripts": [
+      "segments.js",
+      "markup.js",
+      "api.js",
+      "cache.js",
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_title": "Index 网页翻译",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "48": "icon.svg",
+    "96": "icon.svg"
+  }
+}

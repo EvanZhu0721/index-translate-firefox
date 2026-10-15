@@ -1,0 +1,7 @@
+.amo-upload-uuid
+web-ext-artifacts/
+node_modules/
+*.xpi
+.env
+.env.*
+*credentials*.json
